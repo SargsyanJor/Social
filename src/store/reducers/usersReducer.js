@@ -1,0 +1,23 @@
+const GET_USERS = "get/users"
+
+const initState = {
+  users: [],
+};
+
+export const usersReducer = (state = initState, action) => {
+  switch (action.type) {
+    case GET_USERS: {
+        return {
+            ...state,
+            users : action.payload
+        }
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+
+
+export const getUsersAC = (data)=> ({type:GET_USERS,payload:data})
