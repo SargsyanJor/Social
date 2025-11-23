@@ -1,26 +1,26 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { Provider } from 'react-redux';
+import { store } from '../store/store';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes/routes';
 
-import { SocialApi } from '../api/api';
+import './styles/App.css' 
 
-import './styles/App.css'
 
 function App() {
 
-  const dispatch = useDispatch()
-  const { users } = useSelector((state) => state.usersData)
 
-  console.log(users)
-  
-  useEffect(() => {
-    SocialApi.getUsers(dispatch)
-  }, []);
+
+
+ 
 
 
 
   return (
     <>
-    
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </>
   )
 }

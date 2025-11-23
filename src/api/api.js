@@ -6,7 +6,7 @@ const instance = axios.create({
 })
 
 
- const SocialApi = {
+export  const SocialApi = {
     getUsers(dispatch) {
         instance.get("/users")
         .then((res) => dispatch(getUsersAC(res.data.items)))
@@ -14,4 +14,3 @@ const instance = axios.create({
 }
 
 
-export {SocialApi}
