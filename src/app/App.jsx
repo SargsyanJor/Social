@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { SocialApi } from './api/api';
+import { SocialApi } from '../api/api';
 
-import './App.css'
+import './styles/App.css'
 
 function App() {
 
@@ -20,6 +20,7 @@ function App() {
 
   return (
     <>
+    
     </>
   )
 }
