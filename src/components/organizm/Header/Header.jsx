@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {AppBar,Box,Toolbar,Typography,Container,Button} from '@mui/material';
+import LockTwoToneIcon from '@mui/icons-material/LockTwoTone';
 import { NavLink } from 'react-router-dom';
 
 
@@ -14,23 +15,7 @@ function Header() {
             <Container maxWidth="xl" >
                 <Toolbar disableGutters>
 
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="#app-bar-with-responsive-menu"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'none', md: 'flex' },
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        LOGO
-                    </Typography>
+                    <LockTwoToneIcon     sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
 
                     <Box sx={{ flexGrow: 1, display: "flex", gap : "15px" }}>
                         {pages.map((page) => (

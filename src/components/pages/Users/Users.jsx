@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { SocialApi } from '../../../api/api'
+import { UserList } from '../../organizm/UserList/UserList'
 
 export const Users = () => {
     const dispatch = useDispatch()
@@ -13,6 +14,6 @@ export const Users = () => {
 
 
     return (
-        <div>{users.map((user)=> (<li key={user.id}>{user.name}</li>))}</div>
+        <UserList users={users} />
     )
 }
