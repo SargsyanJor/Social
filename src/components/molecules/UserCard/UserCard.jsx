@@ -1,31 +1,22 @@
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import {Card,CardActions,CardContent,CardMedia,Button,Typography} from '@mui/material';
+import userIMG from "../../../assets/image/user.png"
 
-export default function UserCard({users}) {
-    console.log(users)
+export default function UserCard({user}) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 250 }}>
       <CardMedia
-        sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
+        sx={{ width: 230, height: 230, objectFit: "contain" }}
+        image={user.photos.large? user.photos.large :userIMG}
         title="green iguana"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+        <Typography gutterBottom variant="h6" component="div">
+          {user.name}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button variant="contained"size="small">About Me</Button>
+        <Button variant="contained"size="small">Follow</Button>
       </CardActions>
     </Card>
   );

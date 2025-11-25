@@ -1,16 +1,26 @@
-const GET_USERS = "get/users"
+import { SocialApi } from "../../api/api";
+
+const GET_USERS = "get/users";
+const IS_LOADING = "is/loading";
 
 const initState = {
   users: [],
+  isLoading: false,
 };
 
 export const usersReducer = (state = initState, action) => {
   switch (action.type) {
     case GET_USERS: {
-        return {
-            ...state,
-            users : action.payload
-        }
+      return {
+        ...state,
+        users: action.payload,
+      };
+    }
+    case IS_LOADING: {
+      return {
+        ...state,
+        isLoading: action.payload,
+      };
     }
     default: {
       return state;
@@ -18,6 +28,16 @@ export const usersReducer = (state = initState, action) => {
   }
 };
 
+const getUsersAC = (data) => ({ type: GET_USERS, payload: data });
+const isLoadingAC = (bool) => ({ type: IS_LOADING, payload: bool });
 
+export const usersThunkCreator = () => {
+  return (dispatch) => {
+    dispatch(isLoadingAC(true));
 
-export const getUsersAC = (data)=> ({type:GET_USERS,payload:data})
+    SocialApi.getUsers().then((res) => {
+      dispatch(getUsersAC(res.data.items));
+      dispatch(isLoadingAC(false));
+    });
+  };
+};

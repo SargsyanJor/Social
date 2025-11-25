@@ -11,7 +11,7 @@ function Header() {
   
 
     return (
-        <AppBar position="static" color="error" sx={{mb:"30px"}}>
+        <AppBar position="static" color="error" >
             <Container maxWidth="xl" >
                 <Toolbar disableGutters>
 

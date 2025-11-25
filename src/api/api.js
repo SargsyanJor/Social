@@ -1,16 +1,12 @@
-import axios from "axios"
-import { getUsersAC } from "../store/reducers/usersReducer"
+import axios from "axios";
+
 
 const instance = axios.create({
-    baseURL: "https://social-network.samuraijs.com/api/1.0"
-})
+  baseURL: "https://social-network.samuraijs.com/api/1.0",
+});
 
-
-export  const SocialApi = {
-    getUsers(dispatch) {
-        instance.get("/users")
-        .then((res) => dispatch(getUsersAC(res.data.items)))
-       }
-}
-
-
+export const SocialApi = {
+  getUsers() {
+     return instance.get("/users?count=50")
+  },
+};
