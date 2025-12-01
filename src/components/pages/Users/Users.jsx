@@ -10,12 +10,12 @@ import "./Users.css"
 
 export const Users = () => {
     const dispatch = useDispatch()
-    const { users, isLoading } = useSelector((state) => state.usersData)
+    const { users, currentPage, isLoading } = useSelector((state) => state.usersData)
 
 
     useEffect(() => {
-        dispatch(usersThunkCreator())
-    }, []);
+        dispatch(usersThunkCreator(currentPage))
+    }, [currentPage]);
 
 
 
