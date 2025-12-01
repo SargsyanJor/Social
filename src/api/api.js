@@ -8,5 +8,7 @@ export const SocialApi = {
   getUsers(page = 1) {
     return instance.get(`/users?count=50&page=${page}`);
   },
+  login(body) {
+    return instance.post("/auth/login",body);
+  },
 };
-
