@@ -1,5 +1,6 @@
 import {Card,CardActions,CardContent,CardMedia,Button,Typography} from '@mui/material';
 import userIMG from "../../../assets/image/user.png"
+import { NavLink } from 'react-router-dom';
 
 export default function UserCard({user}) {
   return (
@@ -16,7 +17,7 @@ export default function UserCard({user}) {
       </CardContent>
       <CardActions>
         <Button variant="contained"size="small">About Me</Button>
-        <Button variant="contained"size="small">Follow</Button>
+        <Button  component={NavLink} to={`/users/profile/${user.id}`} variant="contained"size="small">View Profile</Button>
       </CardActions>
     </Card>
   );
