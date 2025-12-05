@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { ProfileName } from '../../atoms/ProfileName/ProfileName'
 import { ProfileImg } from '../../atoms/ProfileImg/ProfileImg'
 
+
 export const ProfileHeader = ({ profileProps }) => {
     const dispatch = useDispatch()
 
@@ -13,6 +14,9 @@ export const ProfileHeader = ({ profileProps }) => {
         dispatch(changeImgThunk(file))
     }
 
+    const id = localStorage.getItem("userId")
+
+
     return (
 
         <>
@@ -20,9 +24,25 @@ export const ProfileHeader = ({ profileProps }) => {
 
             <ProfileName profileName={profileProps?.name} />
 
-            <Box>
-                <input type="file" onChange={changeImg} />
-            </Box>
+            {id == profileProps.id ? <Box
+                sx={{
+                    display: "inline-block",
+                    padding: "8px 16px",
+                    background: "#1976d2",
+                    color: "white",
+                    borderRadius: "8px",
+                    cursor: "pointer",
+                    fontSize: "14px",
+                    marginTop: "15px"
+                }}
+            >
+                <Typography>Upload Photo</Typography>
+                <input
+                    type="file"
+                    onChange={changeImg}
+                    style={{ display: "none" }}   // ← hides default input + removes “no file chosen”
+                />
+            </Box> : ""}
         </>
 
     )

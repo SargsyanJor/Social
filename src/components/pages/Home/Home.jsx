@@ -9,11 +9,10 @@ export const Home = () => {
   const disptach = useDispatch()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  // const { userId } = useSelector(state => state.authData)
   const userId = localStorage.getItem("userId")
 
 
-  console.log(userId)
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
