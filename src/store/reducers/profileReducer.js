@@ -18,12 +18,21 @@ export const profileReducer = (state = initState, action) => {
   }
 };
 
-const getProfileAC = (profileData) => ({ type: GET_PROFILE, payload: profileData });
+const getProfileAC = (profileData) => ({
+  type: GET_PROFILE,
+  payload: profileData,
+});
 
 export const profileThunk = (userId) => {
   return (dispatch) => {
     SocialApi.profileUsers(userId).then((res) =>
       dispatch(getProfileAC(res.data))
     );
+  };
+};
+
+export const changeImgThunk = (file) => {
+  return () => {
+    SocialApi.changeImg(file).then((res) => console.log(res));
   };
 };
